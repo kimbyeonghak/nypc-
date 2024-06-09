@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+int main(){
+	int n,k;
+	cin >> n;
+	vector<string> jobs(n);
+	for(int i = 0;i<n;i++){
+		cin >> jobs[i];
+	}	
+
+	cin >> k ;
+	vector<string> ans(k);
+	for(int i=0; i<k;i++){
+		cin >> ans[i];
+	}
+	
+	vector<string> newjobs;
+	int cnt = 0;
+	
+	for(int i=0;i<n;i++){
+		int check = 0;
+		for(int j = 0;j < k; j++){
+			if(jobs[i] == ans[j]){
+				check = 1;
+				break;	
+			}
+		}
+		if(!check){
+			newjobs.push_back(jobs[i]);
+			cnt++;
+		}
+			
+	}
+	cout << cnt << "\n";
+	for(int i = 0 ;i < cnt; i++){
+		cout << newjobs[i] << "\n";
+	}
+	return 0;
+}
